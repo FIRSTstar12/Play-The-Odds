@@ -1,4 +1,5 @@
 import random
+import CardList
 
 busted = False
 stay = False
@@ -6,7 +7,7 @@ newCard = ""
 while(not stay and not busted):
     choice = input("hit or stay?: ")
     if(choice == "hit"):
-        newCard = random.choice(cards)
+        newCard = random.choice(CardList.cards)
         rankN = newCard.split(" of ")[0]
         if(rankN.isdigit()):
             valueN = int(rankN)
@@ -14,7 +15,7 @@ while(not stay and not busted):
             valueN = 10
         elif(rankN == "Ace"):
             valueN = 1
-        cards.remove(newCard)
+        CardList.cards.remove(newCard)
         currentValue += valueN
         newCard = ""
         rankN = ""
