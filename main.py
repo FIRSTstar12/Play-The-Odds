@@ -79,7 +79,21 @@ while(not stay and not busted):
     choice = input("hit or stay?: ")
     if(choice == "hit"):
         newCard = random.choice(cards)
-        # for cards in playerCards:
+        rankN = newCard.split(" of ")[0]
+        if(rankN.isdigit()):
+            valueN = int(rankN)
+        elif(rankN == "King" or rankN == "Queen" or rankN == "Jack"):
+            valueN = 10
+        elif(rankN == "Ace"):
+            valueN = 1
+        cards.remove(newCard)
+        currentValue += valueN
+        newCard = ""
+        rankN = ""
+        valueN = ""
+        if(currentValue > 21):
+            busted = True
+            break
     elif(choice == "stay"):
         stay = True
         break
