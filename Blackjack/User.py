@@ -1,32 +1,32 @@
-import random
-import CardList
+import PointValues
+import Computer
 
-playerHiddenCard = random.choice(CardList.cards)
-rankPH = playerHiddenCard.split(" of ")[0]
+userCards = []
+shownCards = []
+def getPoints():
+    if(len(userCards) != 0):
+        return PointValues.points(userCards)
 
-if(rankPH.isdigit()):
-    valuePH = int(rankPH)
-elif(rankPH == "King" or rankPH == "Queen" or rankPH == "Jack"):
-    valuePH = 10
-elif(rankPH == "Ace"):
-    valuePH = 1
+def printCards():
+    if(len(userCards) != 0):
+        print("You have: ")
+        for card in userCards:
+            print(card)
+    else:
+        print("You have no cards")
 
-CardList.cards.remove(playerHiddenCard)
-playerShownCard = random.choice(CardList.cards)
-rankPS = playerShownCard.split(" of ")[0]
+def visable():
+    print("You can see: ")
+    printCards()
+    Computer.getShowCards()
 
-if(rankPS.isdigit()):
-    valuePS = int(rankPS)
-elif(rankPS == "King" or rankPS == "Queen" or rankPS == "Jack"):
-    valuePS = 10
-elif(rankPS == "Ace"):
-    valuePS = 1
+def getShowCards():
+    if(len(userCards) != 0):
+        for card in userCards:
+            if(card != userCards[1]):
+                shownCards.append(card)
+            else:
+                continue
+    else:
+        print("You have no cards")
 
-CardList.cards.remove(playerShownCard)
-
-playerCardList = [playerHiddenCard,playerShownCard]
-if(valuePH == valuePS):
-    valuePS = 11
-    valuePH = 1
-
-currentValue = valuePH + valuePS

@@ -1,3 +1,5 @@
+import random
+
 cards = [
     "Ace of Hearts", "2 of Hearts", "3 of Hearts", "4 of Hearts",
     "5 of Hearts", "6 of Hearts", "7 of Hearts", "8 of Hearts",
@@ -34,3 +36,11 @@ values = {
     "Queen" : 10,
     "King" : 10
 }
+
+def burn():
+    burnedCard = random.choice(cards)
+    cards.remove(burnedCard)
+def deal():
+    faceUp = random.choice(cards)
+    cards.remove(faceUp)
+    return faceUp

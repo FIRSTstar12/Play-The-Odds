@@ -1,16 +1,16 @@
-import User
-import Computer
 import CardList
-def ace():
-    if User.currentValue + 11 > 21:
-        User.currentValue += 1
-    else:
-        User.currentValue += 11
 
-def points(user):
-    if user == "user":
-        player = User
-    else:
-        player = Computer
-
-    CardList.values.get(CardList.cards.index(player))
+def points(playerList):
+    sum = 0
+    for card in playerList:
+        valueKey = card.split(" of ")[0]
+        if(valueKey != "Ace"):
+            sum += CardList.values.get(valueKey)
+        elif(valueKey == "Ace"):
+            if(sum + 11 <= 21):
+                sum += 11
+            else:
+                sum += 1
+        else:
+            return "something is broken"
+    return sum
