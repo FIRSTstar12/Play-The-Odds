@@ -3,8 +3,7 @@ import CardList
 import User
 import Computer
 
-busted = False
-stay = False
+done = False
 winner = ""
 
 CardList.burn()
@@ -18,17 +17,17 @@ print(Computer.getShowCards())
 
 #Player
 choose = ""
-while not busted or not stay:
+while done == False:
     choose = input("Hit or Stay?: ")
     if choose == "Hit" or choose == "hit":
         User.userCards.append(CardList.deal())
         if User.getPoints() > 21:
-            busted = True
+            done = True
             winner = "Computer"
     elif choose == "Hint" or choose == "hint":
         print(Odds.oddsOfBust(User.getPoints()))
     else:
-        stay = True
+        done = True
 
 #Computer/Dealer
 while Computer.getPoints() < 21:
@@ -40,10 +39,28 @@ while Computer.getPoints() < 21:
     else:
         break
 
-if User.getPoints() > Computer.getPoints():
-    winner = "User"
-elif User.getPoints() < Computer.getPoints():
-    winner = "Computer"
+if winner == "":
+    if User.getPoints() > Computer.getPoints():
+        winner = "User"
+    elif User.getPoints() < Computer.getPoints():
+        winner = "Computer"
+    else:
+        print("There was a tie, it's time for a draw off. You and the computer will draw, higher card will win")
+        while User.getPoints() == Computer.getPoints():
+            userCard = CardList.deal()
+            User.userCards.append(userCard)
+            compCard = CardList.deal()
+            Computer.compulterCards.append(compCard)
+            if User.getPoints() > Computer.getPoints():
+                winner = "User"
+            elif User.getPoints() < Computer.getPoints():
+                winner = "Computer"
+            else:
+                continue
+
+if winner == "User":
+    print("You WIN!! :D")
+elif winner == "Computer":
+    print("You lost :(")
 else:
-    print("There was a tie, it's time for a draw off. You and the computer will draw, higher card will win")
-    
+    print("Tie? :|")
