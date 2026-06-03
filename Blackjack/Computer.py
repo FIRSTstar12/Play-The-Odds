@@ -1,16 +1,18 @@
+import PointValues
 compulterCards = []
+showCards = []
 currentValue = 0
 
 def getPoints():
     if(len(compulterCards) != 0):
-        return compulterCards.points(compulterCards)
+        return PointValues.points(compulterCards)
 
 
 def getShowCards():
     if(len(compulterCards) != 0):
         for card in compulterCards:
             if(card != compulterCards[1]):
-                compulterCards.append(card)
+                showCards.append(card)
             else:
                 continue
     else:
