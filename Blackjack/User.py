@@ -1,5 +1,5 @@
-import PointValues
-import Computer
+from . import PointValues
+from . import Computer
 
 userCards = []
 shownCards = []

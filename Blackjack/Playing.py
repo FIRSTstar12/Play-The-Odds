@@ -1,7 +1,7 @@
-import Odds
-import CardList
-import User
-import Computer
+from . import Odds
+from . import CardList
+from . import User
+from . import Computer
 
 def playing():
     done = False
@@ -31,7 +31,7 @@ def playing():
             done = True
 
     #Computer/Dealer
-    while Computer.getPoints() <= 16 and Computer.getPoints() >= 17:
+    while Computer.getPoints() <= 16:
         if Odds.oddsOfBust(User.getPoints()) <= 0.699:
             Computer.compulterCards.append(CardList.deal())
             if Computer.getPoints() < 21:

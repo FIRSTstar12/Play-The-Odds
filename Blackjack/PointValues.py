@@ -1,4 +1,4 @@
-import CardList
+from . import CardList
 
 def points(playerList):
     sum = 0

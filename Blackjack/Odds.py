@@ -1,7 +1,7 @@
-import User
-import Computer
-import CardList
-import PointValues
+from . import User
+from . import Computer
+from . import CardList
+from . import PointValues
 
 def optimalCard(currentPointVal):
     optimized = {}

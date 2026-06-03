@@ -1,4 +1,4 @@
-import PointValues
+from . import PointValues
 compulterCards = []
 showCards = []
 currentValue = 0
@@ -15,5 +15,6 @@ def getShowCards():
                 showCards.append(card)
             else:
                 continue
+        return showCards
     else:
         print("The computer has no cards")
