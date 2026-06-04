@@ -2,14 +2,14 @@ from . import PointValues
 from . import Computer
 
 userCards = []
-shownCards = []
 def getPoints():
-    if(len(userCards) != 0):
+    if len(userCards) != 0:
         return PointValues.points(userCards)
+    return 0
 
 def printCards():
-    if(len(userCards) != 0):
-        print("You have: ")
+    if len(userCards) != 0:
+        print("You have:")
         for card in userCards:
             print(card)
     else:
@@ -18,10 +18,11 @@ def printCards():
 def visable():
     print("You can see: ")
     printCards()
-    Computer.getShowCards()
+    print(Computer.getShowCards())
 
 def getShowCards():
     if(len(userCards) != 0):
+        shownCards = []
         for card in userCards:
             if(card != userCards[1]):
                 shownCards.append(card)
@@ -29,4 +30,6 @@ def getShowCards():
                 continue
     else:
         print("You have no cards")
+        return []
+    return shownCards
 
