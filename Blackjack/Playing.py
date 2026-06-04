@@ -32,9 +32,9 @@ def playing():
 
     #Computer/Dealer
     while Computer.getPoints() <= 16:
-        if Odds.oddsOfBust(User.getPoints()) <= 0.699:
+        if Odds.oddsOfBust(Computer.getPoints()) <= 0.699:
             Computer.compulterCards.append(CardList.deal())
-            if Computer.getPoints() < 21:
+            if Computer.getPoints() > 21:
                 winner = "User"
                 break
         else:

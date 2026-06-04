@@ -1,6 +1,5 @@
 from . import PointValues
 compulterCards = []
-showCards = []
 currentValue = 0
 
 def getPoints():
@@ -10,11 +9,12 @@ def getPoints():
 
 def getShowCards():
     if(len(compulterCards) != 0):
+        showCards = []
         for card in compulterCards:
             if(card != compulterCards[1]):
                 showCards.append(card)
             else:
-                continue
+                showCards.append("Hidden Card")
         return showCards
     else:
         print("The computer has no cards")
