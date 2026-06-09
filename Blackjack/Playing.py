@@ -83,3 +83,5 @@ def playing():
         print("You lost :(")
     else:
         print("Tie? :|")
+    User.printCards()
+    Computer.getShowCards()

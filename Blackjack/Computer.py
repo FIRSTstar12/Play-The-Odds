@@ -15,6 +15,7 @@ def getShowCards():
                 showCards.append(card)
             else:
                 showCards.append("Hidden Card")
-        return showCards
+        for cards in compulterCards:
+            print(cards)
     else:
         print("The computer has no cards")
