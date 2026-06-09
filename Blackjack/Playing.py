@@ -2,19 +2,37 @@ from . import Odds
 from . import CardList
 from . import User
 from . import Computer
+from . import Misc
 
 def playing():
     done = False
     winner = ""
 
+    print("Let's play some Blackjack!") #intro
+    Misc.wait(3)
+    print()
+    print("Burning a card...") #burning a card
+    Misc.wait(1.5)
     CardList.burn()
 
-    User.userCards.append(CardList.deal()) 
-    Computer.compulterCards.append(CardList.deal())
-    User.userCards.append(CardList.deal())
-    User.printCards()
-    Computer.compulterCards.append(CardList.deal())
-    print(Computer.getShowCards())
+    print("Dealing cards...") #dealing cards
+    Misc.wait(1.5)
+    print()
+    User.userCards.append(CardList.deal()) #user's first card is face up
+    print()
+    Misc.wait(1.5)
+    Computer.compulterCards.append(CardList.deal()) #computer's first card is face up
+    Misc.wait(1.5)
+    User.userCards.append(CardList.deal()) #user's second card is face down
+    Misc.wait(1.5)
+    User.printCards() #shows the user their cards
+    print()
+    Misc.wait(1.5)
+    Computer.compulterCards.append(CardList.deal()) #computer's second card is face down
+    Misc.wait(1.5)
+    print("Computer's visible cards:")
+    print(Computer.getShowCards()) #shows the user the computer's face up card
+    Misc.wait(5)
 
     #Player
     choose = ""
@@ -65,3 +83,5 @@ def playing():
         print("You lost :(")
     else:
         print("Tie? :|")
+    User.printCards()
+    Computer.getShowCards()
