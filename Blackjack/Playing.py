@@ -30,7 +30,7 @@ def playing():
     Misc.wait(1.5)
     Computer.compulterCards.append(CardList.deal()) #computer's second card is face down
     Misc.wait(1.5)
-    print("Computer's visible cards:")
+    # print("Computer's visible cards:")
     print(Computer.getShowCards()) #shows the user the computer's face up card
     Misc.wait(5)
 
@@ -83,5 +83,7 @@ def playing():
         print("You lost :(")
     else:
         print("Tie? :|")
+    
     User.printCards()
-    Computer.getShowCards()
+
+    Computer.printCards()
